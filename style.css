@@ -49,12 +49,6 @@ button {
   border-radius: 3px;
 }
 
-#mobile_topbar,
-#settings_header,
-.mobile_enter_wrap {
-  display: none;
-}
-
 .left {
   float: left;
   margin-right: 10px;
@@ -76,17 +70,9 @@ label {
 
 #log {
   font-family: 'Courier New', monospace;
-  width: 100%;
   height: 350px;
   overflow-y: auto;
   display: inline-block;
-}
-
-#log th,
-#log td {
-  padding-right: 1.1em;
-  text-align: left;
-  white-space: nowrap;
 }
 
 .send button {
@@ -107,8 +93,6 @@ th {
 #container {
   position: relative;
   display: inline-block;
-  width: 950px;
-  max-width: 62vw;
 
 }
 
@@ -328,54 +312,18 @@ a {
 
 #main {
   display: grid;
-  grid-template-columns: max-content 20em max-content;
+  grid-template-columns: max-content max-content;
   grid-template-rows: 1fr max-content;
-  column-gap: 10px;
 }
 
 #footer {
-  display: contents;
+  grid-column-start: span 2;
   /*  width: 100%; */
   flex-basis: 100%;
 }
 
-#right_column {
-  display: contents;
-}
-
-#score_row {
-  display: contents;
-}
-
-#container {
-  grid-column: 1 / 2;
-  grid-row: 1;
-}
-
-#settings_panel {
-  grid-column: 2 / 4;
-  grid-row: 1;
-  align-self: end;
-  margin-bottom: 10px;
-}
-
-#low_row {
-  grid-column: 1;
-  grid-row: 2;
-}
-
 #stat {
-  grid-column: 2;
-  grid-row: 2;
-}
-
-#result {
-  grid-column: 3;
-  grid-row: 2;
-}
-
-#stat {
-  flex: 0 0 20em;
+  flex-grow: 1;
   border-width: 2px;
   border-style: groove;
   border-color: gray;
@@ -435,348 +383,4 @@ a {
 
 #log_hdr {
   color:  rgb(28, 161, 202);
-}
-
-@media (max-width: 700px) {
-  body {
-    margin: 0;
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
-
-  #main {
-    width: 100vw;
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto minmax(150px, 1fr) auto;
-    gap: 0;
-  }
-
-  #mobile_topbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 6px;
-    padding: 6px;
-    border-bottom: 1px solid rgb(66, 65, 65);
-  }
-
-  #settings_open,
-  #settings_close,
-  #mobile_run,
-  #mobile_enter {
-    min-height: 44px;
-    font-size: 15pt;
-  }
-
-  #mobile_run {
-    display: inline-block;
-    width: 7em;
-    background-color: darkgreen;
-  }
-
-  #settings_open {
-    width: 7em;
-  }
-
-  #container {
-    width: 100%;
-    min-width: 0;
-    display: block;
-  }
-
-  #log {
-    width: 100%;
-    height: clamp(150px, 32vh, 260px);
-    margin: 0;
-    padding: 4px;
-    display: block;
-    overflow: auto;
-    font-size: 12pt;
-  }
-
-  #log table {
-    width: 100%;
-    border-spacing: 0;
-  }
-
-  #log th,
-  #log td {
-    padding-right: 0.45em;
-  }
-
-  #log th:nth-child(3),
-  #log td:nth-child(3),
-  #log th:nth-child(4),
-  #log td:nth-child(4) {
-    max-width: 7em;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  #title {
-    padding: 45px 8px;
-  }
-
-  .large {
-    font-size: 20pt;
-  }
-
-  #settings_panel {
-    position: fixed;
-    z-index: 20;
-    inset: 0;
-    display: none;
-    overflow: auto;
-    background: black;
-    padding: 8px;
-  }
-
-  body.settings-open #settings_panel {
-    display: block;
-  }
-
-  #settings_header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 0 8px 0;
-    color: rgb(28, 161, 202);
-    font-size: 18pt;
-    font-weight: bold;
-  }
-
-  #settings_close {
-    width: 48px;
-    font-size: 22pt;
-    line-height: 1;
-  }
-
-  #settings_panel > .grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-
-  #settings_panel input,
-  #settings_panel select {
-    min-width: 0;
-    max-width: 100%;
-  }
-
-  #settings_panel .flex_form {
-    flex-wrap: wrap;
-  }
-
-  #settings_panel fieldset:nth-of-type(3) .flex_form:nth-of-type(2) {
-    display: grid;
-    grid-template-columns: max-content minmax(0, 1fr) max-content 4.5em;
-    align-items: center;
-  }
-
-  #settings_panel fieldset:nth-of-type(3) .flex_form:nth-of-type(2) #mode {
-    width: 100%;
-  }
-
-  #settings_panel fieldset:nth-of-type(3) .flex_form:nth-of-type(2) #activity {
-    width: 100%;
-  }
-
-  #settings_panel fieldset:nth-of-type(3) > .flex_form:last-of-type {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) max-content 5em max-content;
-    align-items: center;
-  }
-
-  #settings_panel fieldset:nth-of-type(3) > .flex_form:last-of-type #run {
-    width: 100%;
-  }
-
-  #settings_panel fieldset:nth-of-type(3) > .flex_form:last-of-type #time {
-    width: 100%;
-  }
-
-  fieldset {
-    width: 100%;
-    min-width: 0;
-  }
-
-  .grid_form {
-    grid-template-columns: minmax(100px, 1fr) minmax(90px, 0fr) 3em;
-  }
-
-  .condx_grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  input,
-  select,
-  button {
-    font-size: 16pt;
-  }
-
-  input[type="checkbox"] {
-    width: 22px;
-    height: 22px;
-  }
-
-  #footer {
-    grid-column-start: auto;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 6px;
-    padding: 6px;
-  }
-
-  #right_column {
-    display: contents;
-  }
-
-  #score_row {
-    display: contents;
-  }
-
-  #low_row {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 6px;
-    order: 1;
-  }
-
-  #input {
-    width: 100%;
-    margin: 0;
-    display: grid;
-    grid-template-columns: minmax(130px, 1fr) minmax(150px, 1fr) 70px 44px;
-    gap: 6px;
-    align-items: end;
-  }
-
-  #exchange {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6px;
-  }
-
-  #input input {
-    width: 100%;
-    min-width: 0;
-    height: 44px;
-    font-size: 18pt;
-  }
-
-  #input label {
-    font-size: 14pt;
-  }
-
-  .mobile_enter_wrap {
-    display: block;
-  }
-
-  #mobile_enter {
-    width: 100%;
-    height: 44px;
-    background-color: rgb(28, 161, 202);
-    color: black;
-    font-weight: bold;
-  }
-
-  .led-indicator {
-    width: 34px;
-    height: 34px;
-    margin-right: 0;
-  }
-
-  #send_button {
-    width: 100%;
-    margin: 0;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 6px;
-  }
-
-  .send button {
-    width: 100%;
-    min-height: 48px;
-    font-size: 13pt;
-    line-height: 1.1;
-    padding: 4px;
-  }
-
-  #stat {
-    width: 100%;
-    flex-basis: auto;
-    margin: 0;
-    min-height: 90px;
-    order: 3;
-  }
-
-  #qso_chart {
-    min-height: 54px;
-  }
-
-  #result {
-    width: 100%;
-    padding: 0;
-    display: grid;
-    grid-template-columns: minmax(135px, 1fr) minmax(145px, 1fr);
-    align-items: center;
-    gap: 6px;
-    order: 2;
-  }
-
-  #clock {
-    width: 100%;
-    font-size: 20pt;
-    padding: 4px;
-  }
-
-  .table_result {
-    width: 100%;
-    font-size: 12pt;
-    border-spacing: 4px 0;
-  }
-}
-
-@media (max-width: 420px) {
-  #input {
-    grid-template-columns: 1fr 64px 44px;
-  }
-
-  #input > div:first-child {
-    grid-column: 1 / -1;
-  }
-
-  #send_button {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .send button {
-    min-height: 44px;
-  }
-
-  #settings_panel fieldset:nth-of-type(3) .flex_form:nth-of-type(2) {
-    grid-template-columns: max-content minmax(0, 1fr);
-  }
-
-  #settings_panel fieldset:nth-of-type(3) .flex_form:nth-of-type(2) label[for="mode"] {
-    grid-column: auto;
-  }
-
-  #settings_panel fieldset:nth-of-type(3) .flex_form:nth-of-type(2) label[for="activity"] {
-    grid-column: auto;
-  }
-
-  #settings_panel fieldset:nth-of-type(3) .flex_form:nth-of-type(2) #activity {
-    width: 4.5em;
-  }
-
-  #settings_panel fieldset:nth-of-type(3) > .flex_form:last-of-type {
-    grid-template-columns: 1fr max-content 5em;
-  }
-
-  #settings_panel fieldset:nth-of-type(3) > .flex_form:last-of-type label[for="time"] {
-    grid-column: 3;
-  }
 }
