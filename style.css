@@ -338,7 +338,7 @@ a {
 }
 
 #stat {
-  flex-grow: 1;
+  flex: 0 0 34em;
   border-width: 2px;
   border-style: groove;
   border-color: gray;
@@ -418,17 +418,25 @@ a {
 
   #mobile_topbar {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
+    gap: 6px;
     padding: 6px;
     border-bottom: 1px solid rgb(66, 65, 65);
   }
 
   #settings_open,
   #settings_close,
+  #mobile_run,
   #mobile_enter {
     min-height: 44px;
     font-size: 15pt;
+  }
+
+  #mobile_run {
+    display: inline-block;
+    width: 7em;
+    background-color: darkgreen;
   }
 
   #settings_open {
@@ -514,6 +522,44 @@ a {
     gap: 10px;
   }
 
+  #settings_panel input,
+  #settings_panel select {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  #settings_panel .flex_form {
+    flex-wrap: wrap;
+  }
+
+  #settings_panel fieldset:nth-of-type(3) .flex_form:nth-of-type(2) {
+    display: grid;
+    grid-template-columns: max-content minmax(0, 1fr) max-content 4.5em;
+    align-items: center;
+  }
+
+  #settings_panel fieldset:nth-of-type(3) .flex_form:nth-of-type(2) #mode {
+    width: 100%;
+  }
+
+  #settings_panel fieldset:nth-of-type(3) .flex_form:nth-of-type(2) #activity {
+    width: 100%;
+  }
+
+  #settings_panel fieldset:nth-of-type(3) > .flex_form:last-of-type {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) max-content 5em max-content;
+    align-items: center;
+  }
+
+  #settings_panel fieldset:nth-of-type(3) > .flex_form:last-of-type #run {
+    width: 100%;
+  }
+
+  #settings_panel fieldset:nth-of-type(3) > .flex_form:last-of-type #time {
+    width: 100%;
+  }
+
   fieldset {
     width: 100%;
     min-width: 0;
@@ -551,6 +597,7 @@ a {
     display: grid;
     grid-template-columns: 1fr;
     gap: 6px;
+    order: 1;
   }
 
   #input {
@@ -614,8 +661,10 @@ a {
 
   #stat {
     width: 100%;
+    flex-basis: auto;
     margin: 0;
     min-height: 90px;
+    order: 3;
   }
 
   #qso_chart {
@@ -629,6 +678,7 @@ a {
     grid-template-columns: minmax(135px, 1fr) minmax(145px, 1fr);
     align-items: center;
     gap: 6px;
+    order: 2;
   }
 
   #clock {
@@ -659,5 +709,29 @@ a {
 
   .send button {
     min-height: 44px;
+  }
+
+  #settings_panel fieldset:nth-of-type(3) .flex_form:nth-of-type(2) {
+    grid-template-columns: max-content minmax(0, 1fr);
+  }
+
+  #settings_panel fieldset:nth-of-type(3) .flex_form:nth-of-type(2) label[for="mode"] {
+    grid-column: auto;
+  }
+
+  #settings_panel fieldset:nth-of-type(3) .flex_form:nth-of-type(2) label[for="activity"] {
+    grid-column: auto;
+  }
+
+  #settings_panel fieldset:nth-of-type(3) .flex_form:nth-of-type(2) #activity {
+    width: 4.5em;
+  }
+
+  #settings_panel fieldset:nth-of-type(3) > .flex_form:last-of-type {
+    grid-template-columns: 1fr max-content 5em;
+  }
+
+  #settings_panel fieldset:nth-of-type(3) > .flex_form:last-of-type label[for="time"] {
+    grid-column: 3;
   }
 }

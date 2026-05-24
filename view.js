@@ -680,9 +680,17 @@ export class View {
         if (this.running) {
             this.run.classList.add("stop")
             this.run.innerHTML = "&#9724; Stop"
+            if (this.mobileRun) {
+                this.mobileRun.classList.add("stop")
+                this.mobileRun.innerHTML = "&#9724; Stop"
+            }
         } else {
             this.run.classList.remove("stop")
             this.run.innerHTML = "&#9654; Run"
+            if (this.mobileRun) {
+                this.mobileRun.classList.remove("stop")
+                this.mobileRun.innerHTML = "&#9654; Run"
+            }
         }
     }
 
@@ -695,6 +703,15 @@ export class View {
     }
 
     initMobileControls() {
+        this.mobileRun = document.getElementById("mobile_run")
+        if (this.mobileRun) {
+            this.mobileRun.addEventListener("click", (e) => {
+                if (this.running) this.stopContest()
+                else this.startContest()
+                e.preventDefault()
+            })
+        }
+
         const mobileEnter = document.getElementById("mobile_enter")
         if (mobileEnter) {
             mobileEnter.addEventListener("click", async (e) => {
