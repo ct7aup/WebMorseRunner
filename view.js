@@ -750,6 +750,7 @@ export class View {
         this._config = new Config((conf) => {
             this.updateConf(conf)
             this._ContestDefinition.updateConfig(conf)
+            this.calls.setContest(conf.contest_id)
         })
         this._config.update_dom()
     }

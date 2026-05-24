@@ -338,7 +338,7 @@ a {
 }
 
 #stat {
-  flex: 0 0 34em;
+  flex: 0 0 24em;
   border-width: 2px;
   border-style: groove;
   border-color: gray;
