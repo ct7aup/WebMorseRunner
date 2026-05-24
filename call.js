@@ -52,9 +52,10 @@ export class Calls {
     setContest(contest_id) {
         const previous_contest_id = this.contest_id
         this.contest_id = contest_id
-        if (!localStorage.getItem(Calls.store_key) && previous_contest_id !== contest_id) {
-            this.fetch_calls(contest_id)
+        if (previous_contest_id !== contest_id) {
+            return this.fetch_calls(contest_id)
         }
+        return Promise.resolve()
     }
 
     filter_calls(calls) {
