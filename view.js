@@ -680,17 +680,9 @@ export class View {
         if (this.running) {
             this.run.classList.add("stop")
             this.run.innerHTML = "&#9724; Stop"
-            if (this.mobileRun) {
-                this.mobileRun.classList.add("stop")
-                this.mobileRun.innerHTML = "&#9724; Stop"
-            }
         } else {
             this.run.classList.remove("stop")
             this.run.innerHTML = "&#9654; Run"
-            if (this.mobileRun) {
-                this.mobileRun.classList.remove("stop")
-                this.mobileRun.innerHTML = "&#9654; Run"
-            }
         }
     }
 
@@ -700,41 +692,6 @@ export class View {
             if (this.running) this.stopContest()
             else this.startContest()
         })
-    }
-
-    initMobileControls() {
-        this.mobileRun = document.getElementById("mobile_run")
-        if (this.mobileRun) {
-            this.mobileRun.addEventListener("click", (e) => {
-                if (this.running) this.stopContest()
-                else this.startContest()
-                e.preventDefault()
-            })
-        }
-
-        const mobileEnter = document.getElementById("mobile_enter")
-        if (mobileEnter) {
-            mobileEnter.addEventListener("click", async (e) => {
-                if (!this.running) await this.startContest()
-                this.processEnter()
-                e.preventDefault()
-            })
-        }
-
-        const settingsOpen = document.getElementById("settings_open")
-        const settingsClose = document.getElementById("settings_close")
-        if (settingsOpen) {
-            settingsOpen.addEventListener("click", (e) => {
-                document.body.classList.add("settings-open")
-                e.preventDefault()
-            })
-        }
-        if (settingsClose) {
-            settingsClose.addEventListener("click", (e) => {
-                document.body.classList.remove("settings-open")
-                e.preventDefault()
-            })
-        }
     }
 
     updateConf(conf) {
@@ -750,7 +707,6 @@ export class View {
         this._config = new Config((conf) => {
             this.updateConf(conf)
             this._ContestDefinition.updateConfig(conf)
-            this.calls.setContest(conf.contest_id)
         })
         this._config.update_dom()
     }
@@ -761,7 +717,6 @@ export class View {
         this._ContestDefinition = new ContestDefinition()
         this.initConfig()
         this.initRunButton()
-        this.initMobileControls()
         this.sendButton()
         this.wipeFields()
     }

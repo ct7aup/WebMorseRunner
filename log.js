@@ -15,22 +15,22 @@ export class Log {
 
 
     static std_log_header = [
-        "UTC",
-        "Call",
-        "Recv",
-        "Send",
-        "Pref",
-        "Chk",
+        "UTC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;",
+        "Call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;",
+        "Recv&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;",
+        "Send&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;",
+        "Pref&nbsp;",
+        "Chk&nbsp;",
     ]
 
 
     static hst_log_header = [
-        "UTC",
-        "Call",
-        "Recv",
-        "Send",
-        "Score",
-        "Chk",
+        "UTC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;",
+        "Call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;",
+        "Recv&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;",
+        "Send&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;",
+        "Score&nbsp;",
+        "Chk&nbsp;",
     ]
 
     constructor() {

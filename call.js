@@ -1,13 +1,8 @@
 export class Calls {
 
     static store_key = 'web_morse_runner_calls'
-    static default_file = 'calls.txt'
-    static contest_default_files = {
-        cwt: 'Example_Calls/cwops-cwt.txt',
-    }
 
     constructor() {
-        this.contest_id = ''
         this.fileSelect = document.getElementById("fileSelect")
         this.fileElem = document.getElementById("fileElem")
         this.fileSelect.addEventListener(
@@ -24,7 +19,7 @@ export class Calls {
             (e) => {
                 localStorage.removeItem(Calls.store_key)
                 this.fileElem.value = ""
-                this.fetch_calls(this.contest_id)
+                this.fetch_calls() 
                 e.preventDefault() // prevent navigation to "#"
             },
             false,
@@ -47,14 +42,6 @@ export class Calls {
                     reader.readAsText(file)
                 }
             }, false)
-    }
-
-    setContest(contest_id) {
-        const previous_contest_id = this.contest_id
-        this.contest_id = contest_id
-        if (!localStorage.getItem(Calls.store_key) && previous_contest_id !== contest_id) {
-            this.fetch_calls(contest_id)
-        }
     }
 
     filter_calls(calls) {
@@ -80,22 +67,17 @@ export class Calls {
 
     }
 
-    isUsableStoredCalls(calls, contest_id) {
-        if (contest_id !== 'cwt') return calls.length > 0
-        return calls.some(c => c.length >= 3)
-    }
-
-    async fetch_calls(contest_id = this.contest_id) {
+    async fetch_calls() {
         const localdb__str = localStorage.getItem(Calls.store_key)
         this.calls = new Array()
         if (localdb__str) this.calls = this.filter_calls(localdb__str)
-        if (this.isUsableStoredCalls(this.calls, contest_id)) {
+        if (this.calls.length > 0) {
             this.update_calls()
             return
         }
-        const default_file = Calls.contest_default_files[contest_id] || Calls.default_file
-        const fetched_calls = await (await fetch(default_file)).text()
+        const fetched_calls = await (await fetch('calls.txt')).text()
 
+        localStorage.setItem(Calls.store_key, fetched_calls)
         this.calls = this.filter_calls(fetched_calls)
         this.update_calls()
     }
