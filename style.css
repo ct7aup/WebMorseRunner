@@ -107,7 +107,8 @@ th {
 #container {
   position: relative;
   display: inline-block;
-  width: min(62vw, 950px);
+  width: 950px;
+  max-width: 62vw;
 
 }
 
