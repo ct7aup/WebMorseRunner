@@ -327,13 +327,13 @@ a {
 
 #main {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) max-content max-content;
+  grid-template-columns: max-content max-content;
   grid-template-rows: 1fr max-content;
   column-gap: 10px;
 }
 
 #footer {
-  grid-column: 1 / -1;
+  grid-column-start: span 2;
   /*  width: 100%; */
   flex-basis: 100%;
 }
