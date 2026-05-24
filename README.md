@@ -122,7 +122,7 @@ Web Morse Runner supports the following contest modes:
 * **WPX Contest ** Similar to the Pile-Up mode, but the number of stations in the Pile-up is not displayed. The usage of Band Condition (QRM/QSB etc.) is not enforced.
 * **DARC CWA** (EXPERIMENTAL) Exchange is DOK. You need to [upload](#upload-calls) calls with file [DL-All_DOK.txt](https://raw.githubusercontent.com/fritzsche/WebMorseRunner/refs/heads/main/Example_Calls/DL-All_DOK.txt) that contain necessary DOK information for stations. Notice the points are still calculated by prefix not DOK, this might be later updated.
 * **AWT** (EXPERIMENTAL) Exchange is the name. You need to [upload](#upload-calls) [AWT.txt](https://raw.githubusercontent.com/fritzsche/WebMorseRunner/refs/heads/main/Example_Calls/AWT.txt) that contain necessary example calls with names. The point calculation is still bases on prefix. This might be later added.
-* **CWOps CWT** (EXPERIMENTAL) Exchange is name and CWOps member number, or name and SPC for non-members. Upload a CSV call list using `CALL,NAME,NR` or `CALL,NAME,SPC` so stations can send the full exchange. The sent exchange does not include RST. Logged QSOs are checked against the uploaded name and number/SPC; if a check fails, the log shows whether the mismatch is in `NAME`, `NR`, or both. The point calculation is still based on prefix.
+* **CWOps CWT** (EXPERIMENTAL) Exchange is name and CWOps member number, or name and SPC for non-members. If no custom file is uploaded, Web Morse Runner uses the bundled `Example_Calls/cwops-cwt.txt` list for this contest. You can still upload a CSV call list using `CALL,NAME,NR` or `CALL,NAME,SPC` so stations can send the full exchange. The sent exchange does not include RST. Logged QSOs are checked against the uploaded or bundled name and number/SPC; if a check fails, the log shows whether the mismatch is in `NAME`, `NR`, or both. The point calculation is still based on prefix.
 
 ## Pileup
 To master pileup it is helpful to pick station by station. Typically you can start with station calling on frequency that you copy the best.
@@ -204,9 +204,10 @@ Web Morse Runner shows also a bar chart containing the qso/h in 5 minutes interv
 ## Version
 * **ct7aup fork additions** (unreleased)
    * Experimental CWOps CWT contest mode with `Name` and `Nr/SPC` exchange fields.
-   * Support for CWT call-list uploads using `CALL,NAME,NR` or `CALL,NAME,SPC`.
+   * Bundled default CWT call list, plus support for CWT call-list uploads using `CALL,NAME,NR` or `CALL,NAME,SPC`.
    * CWT logging/checking improvements that report name and number/SPC mismatches separately.
    * DX operator speed range controls using `DX Min` and `DX Max`.
+   * Responsive mobile layout with mobile Run/Settings controls and an Enter button for logging.
 * **0.11.2-beta** (2026-05-03)
    * Bugfix: On Apple keyboard the option key can be use in combination with a number to issue the respective function key, however <Option>-5 did not sent <His> but <His><TU> Reason is that the browser event action send "[" in the key attribute. This was reported by OE8ZZZ thats a lot for the feedback.
    * A small regression was removed that could prevent a correct logging in DARC-Ausbildungscontest and A1Club Contest.
@@ -297,4 +298,3 @@ Like to thank VE3NEA Alex Shovkoplyas for his inspiring work on Morse Runner.
 
 
 73, Thomas - DJ1TF/JJ1QPB
-
