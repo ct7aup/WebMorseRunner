@@ -694,6 +694,32 @@ export class View {
         })
     }
 
+    initMobileControls() {
+        const mobileEnter = document.getElementById("mobile_enter")
+        if (mobileEnter) {
+            mobileEnter.addEventListener("click", async (e) => {
+                if (!this.running) await this.startContest()
+                this.processEnter()
+                e.preventDefault()
+            })
+        }
+
+        const settingsOpen = document.getElementById("settings_open")
+        const settingsClose = document.getElementById("settings_close")
+        if (settingsOpen) {
+            settingsOpen.addEventListener("click", (e) => {
+                document.body.classList.add("settings-open")
+                e.preventDefault()
+            })
+        }
+        if (settingsClose) {
+            settingsClose.addEventListener("click", (e) => {
+                document.body.classList.remove("settings-open")
+                e.preventDefault()
+            })
+        }
+    }
+
     updateConf(conf) {
         if (this.running) {
             this.sendMessage({
@@ -717,6 +743,7 @@ export class View {
         this._ContestDefinition = new ContestDefinition()
         this.initConfig()
         this.initRunButton()
+        this.initMobileControls()
         this.sendButton()
         this.wipeFields()
     }

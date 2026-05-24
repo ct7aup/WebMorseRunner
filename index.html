@@ -15,17 +15,20 @@
 <body>
   <!-- <h1 class="block">WebMorseRunner</h1> -->
   <div id="main">
+    <div id="mobile_topbar">
+      <button id="settings_open" type="button">Settings</button>
+    </div>
 
     <div id="container">
       <div class="block" id="log">
         <table>
           <tr id="log_hdr">
-            <th>UTC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-            <th>Call&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-            <th>Recv&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-            <th>Send&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-            <th>Pref&nbsp;</th>
-            <th>Chk&nbsp;</th>
+            <th>UTC</th>
+            <th>Call</th>
+            <th>Recv</th>
+            <th>Send</th>
+            <th>Pref</th>
+            <th>Chk</th>
           </tr>
         </table>
       </div>
@@ -36,7 +39,11 @@
         </div>
       </div>
     </div>
-    <div>
+    <div id="settings_panel">
+      <div id="settings_header">
+        <div>Settings</div>
+        <button id="settings_close" type="button">&times;</button>
+      </div>
       <div class="grid">
         <fieldset class="grid">
           <legend>Station</legend>
@@ -195,6 +202,9 @@
                 type="text" value="" name="nr">
             </div>
 
+          </div>
+          <div class="mobile_enter_wrap">
+            <button id="mobile_enter" type="button">Enter</button>
           </div>
           <div>
             <div> TX<wbr></div>
