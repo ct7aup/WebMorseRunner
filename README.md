@@ -5,7 +5,9 @@ A small CW contest simulator for the web.
 ## About 
 This is a new written version of Morse Runner as Web-Application.
 
-The app is hosted on GitHub Pages: https://fritzsche.github.io/WebMorseRunner/
+This version of the app is hosted on GitHub Pages: https://ct7aup.github.io/WebMorseRunner/
+
+The original app is hosted on GitHub Pages: https://fritzsche.github.io/WebMorseRunner/
 
 
 The Project is inspired by the Program [MorseRunner by VE3NEA - Alex Shovkoplyas](https://github.com/VE3NEA/MorseRunner). The Idea to start a complete new Web App Project originate from the authors previous effort to [port MorseRunner to Linux and Mac](https://github.com/fritzsche/MorseRunner).
